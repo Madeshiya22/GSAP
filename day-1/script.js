@@ -54,7 +54,20 @@
 //     repeat: -1,
 // });
 
+function applyHoverEffect(id) {
+  const el = document.getElementById(id);
+  const text = el.innerText;
 
+  el.innerHTML = text
+    .split("")
+    .map(letter =>
+      letter === " " ? " " : `<span>${letter}</span>`
+    )
+    .join("");
+}
+
+applyHoverEffect("heroText");
+applyHoverEffect("devText");
 
 gsap.fromTo('.navbar-container',{
     y: -100,

@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background: #000;
+}
+
+.cursor {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+}
+
+.bigcricle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+.smallCircle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #053a3a;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    transform: translate(-50%, -50%)
+}
+
+
+.imageCollection {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+
+.imgContainer {
+    height: 50%;
+    flex: 1;
+    background-color: rgb(255, 77, 0);
+    border-radius: 10px;
+}
+
+.imgContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.text {
+    width:500px;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    display:none;
+    padding: 10px 20px;
+    margin-top: -100px;
+}
+
+.text h1{
+font-size: 2rem;
+
+}
+
+.text p {
+    font-size: 1rem;
+}
+
+.imgContainer:hover .text {
+    display: flex;
+}
