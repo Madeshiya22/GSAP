@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 html,
@@ -91,7 +92,7 @@ body {
     position: relative;
     width: 100%;
     height: calc(100vh - 72px);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .imgDiv {
@@ -254,25 +255,183 @@ body {
     opacity: 0;
 }
 
-.pages_2 {
-    height: 100vh;
+.page_2 {
+    position: relative;
+    min-height: 100vh;
     width: 100%;
-    background: #000000;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 5vw;
+    z-index: 2;
+    /* overflow-x: hidden; */
+}
+
+.page_2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 0% 50%, rgba(166, 89, 89, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.page_2_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 40px;
+}
+
+.page_2_text {
+    flex: 1;
+    color:black;
+    padding-right: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.section_title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-family: 'Panchang', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+    color: #000000;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.section_desc {
+    font-size: 1.2rem;
+    font-family: 'Clash Display', sans-serif;
+    line-height: 1.8;
+    color: rgba(56, 56, 56, 0.7);
+    margin-bottom: 50px;
+    max-width: 600px;
+}
+
+.tech_specs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.spec_item h4 {
+    font-family: 'Panchang', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: rgba(42, 41, 41, 0.9);
+}
+
+.spec_bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.spec_fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1f1f1f, #a65959);
+    border-radius: 10px;
+    transform-origin: left;
+}
+
+.page_2_image_container {
+    flex: 1;
+    position: relative;
+    max-width:550px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.box_2 {
-    width: 800px;
-    height: 200px;
-
+.page_2_img {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-.pages_2 img {
+
+
+.page_2_img img {
+  
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.page_2_img img:hover {
+    flex-grow: 5;
+}
+
+.glass_card {
+    position: absolute;
+    bottom: -30px;
+    left: -40px;
+    background: rgba(15, 15, 15, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.glass_text h3 {
+    font-family: 'Panchang', sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.glass_text p {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 0.9rem;
+    color: #a65959;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+    .page_2_content {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+    
+    .page_2_text {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .section_desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .tech_specs {
+        margin: 0 auto;
+    }
+
+    .page_2_image_container {
+        width: 100%;
+    }
+
+    .glass_card {
+        bottom: 20px;
+        left: 20px;
+    }
 }
 
 .pages_3 {
@@ -281,6 +440,25 @@ body {
     display: flex;
     background: #000000;
     overflow: hidden;
+    position: relative;
+
+}
+
+.page_3_title {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.page_3_title h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-family: 'Panchang', sans-serif;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.2em;
+    margin: 0;
+    white-space: nowrap;
 }
 
 .wrapper {
@@ -288,7 +466,7 @@ body {
     min-width: 220vw;
     height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: self-end;
     justify-content: flex-start;
     padding: 0 12vw;
 }

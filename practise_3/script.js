@@ -84,25 +84,43 @@ if (loaderTl) {
 
 
 
-//     gsap.to(".pages_2 .box_2", {
-//         scaleY: 2.5,
-//         opacity: 1,
-//         y: -100,
-//         // filter: "blur(10px)",
-//         duration: 0.8,
-//         scrollTrigger: {
-//             trigger: ".pages_2",
-//             start: "top 60%",
-//             end: "top -50%",
-//             markers: true,
-//             scrub: 1.5,
-//             ease: "power2.inOut",
-//         }
-//     });
+gsap.from(".section_title, .section_desc, .spec_item", {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".page_2",
+        start: "top 75%",
+    }
+});
+
+gsap.from(".page_2_image_container", {
+    x: 100,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".page_2",
+        start: "top 75%",
+    }
+});
+
+gsap.from(".spec_fill", {
+    scaleX: 0,
+    duration: 1.5,
+    stagger: 0.2,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".tech_specs",
+        start: "top 80%",
+    }
+});
 
 
 gsap.to(".pages_3 .wrapper h1", {
-	xPercent: -63,
+	xPercent: -73,
 	ease: "none",
 	scrollTrigger: {
 		trigger: ".pages_3",
@@ -114,6 +132,12 @@ gsap.to(".pages_3 .wrapper h1", {
 		pin: true,
 	}
 });
+
+gsap.fromTo(".page_2_img",{
+
+
+	
+})
 
 const batmanText = document.querySelector(".imgDiv h1");
 const darkKnightText = document.querySelector(".title p");
@@ -151,3 +175,5 @@ if (batmanText && darkKnightText) {
 		}
 	});
 }
+
+
