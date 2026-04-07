@@ -194,7 +194,7 @@ if (stackWrapper) {
       scrollTrigger: {
         trigger: stackWrapper,
         start: "top top",
-        end: `+=${boxes.length * 300}%`,
+        end: `+=${boxes.length * 400}%`,
         scrub: 1,
         pin: true,
         anticipatePin: 1
@@ -288,7 +288,12 @@ if (stackWrapper) {
         // ══════════════════════════════════════
         //  BOXES 2, 3, 4 — Original stacking
         // ══════════════════════════════════════
-        const enterTime = i * 0.7;
+        let enterTime = i * 0.7;
+
+        // Disproportionately increase scroll time for box 3 by delaying box 4
+        if (i === 3) {
+            enterTime += 1.5;
+        }
 
         // Slide in from bottom
         stackTl.fromTo(
@@ -318,7 +323,6 @@ if (stackWrapper) {
         const line = box.querySelector(".box-line");
         const boxDesc = box.querySelector(".box-desc");
         const tags = box.querySelector(".box-tags");
-        const techCards = box.querySelectorAll(".tech-card");
         const emblem = box.querySelector(".bat-emblem");
         const b4quote = box.querySelector(".box4-quote");
         const beam = box.querySelector(".box4-beam");
@@ -327,9 +331,11 @@ if (stackWrapper) {
           { opacity: 0, x: -20 },
           { opacity: 1, x: 0, duration: 0.2, ease: "power2.out" }, revealTime);
 
-        if (title) stackTl.fromTo(title,
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, revealTime + 0.05);
+        if (title && !title.classList.contains("box4-hero")) {
+          stackTl.fromTo(title,
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, revealTime + 0.05);
+        }
 
         if (line) stackTl.fromTo(line,
           { scaleX: 0, transformOrigin: "left" },
@@ -339,20 +345,11 @@ if (stackWrapper) {
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, revealTime + 0.12);
 
-        if (techCards.length) {
-          techCards.forEach((card, ci) => {
-            stackTl.fromTo(card,
-              { opacity: 0, y: 30 },
-              { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" },
-              revealTime + 0.1 + ci * 0.08);
-          });
-        }
-
         if (tags) stackTl.fromTo(tags,
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" }, revealTime + 0.25);
 
-        // Bar fills
+        // Bar fills (Box 2)
         const barFills = box.querySelectorAll(".bar-fill");
         barFills.forEach((fill, fi) => {
           const w = fill.dataset.w || 80;
@@ -362,16 +359,30 @@ if (stackWrapper) {
           }, revealTime + 0.15 + fi * 0.06);
         });
 
-        const techFills = box.querySelectorAll(".tech-fill");
-        techFills.forEach((fill, fi) => {
-          const w = fill.dataset.w || 80;
-          gsap.set(fill, { width: "0%" });
-          stackTl.to(fill, {
-            width: w + "%", duration: 0.3, ease: "power2.out"
-          }, revealTime + 0.15 + fi * 0.06);
-        });
+        // Box 3 specials
+        if (i === 2) {
+          const letters = box.querySelectorAll(".vert-letter");
+          if (letters.length) {
+            stackTl.fromTo(letters,
+              { opacity: 0, x: -60, scale: 0.7, color: "rgba(100,100,100,0.5)", textShadow: "0 0 50px rgba(255,255,255,0.5)" },
+              { opacity: 1, x: 0, scale: 1, color: "rgba(255,255,255,0.95)", textShadow: "0 0 20px rgba(255,255,255,0.2)", duration: 0.5, stagger: 0.15, ease: "power4.out" },
+              revealTime
+            );
+          }
+        }
 
         // Box 4 specials
+        if (i === 3) {
+          const chars = box.querySelectorAll(".b4-char");
+          if (chars.length) {
+            stackTl.fromTo(chars,
+              { opacity: 0, y: 120, rotationX: -90, z: -250, scale: 0.3, filter: "blur(10px)" },
+              { opacity: 1, y: 0, rotationX: 0, z: 0, scale: 1, filter: "blur(0px)", duration: 0.8, stagger: { amount: 0.8, from: "random" }, ease: "back.out(2)" },
+              revealTime
+            );
+          }
+        }
+
         if (emblem) stackTl.fromTo(emblem,
           { opacity: 0, scale: 0.5 },
           { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.4)" }, revealTime + 0.05);

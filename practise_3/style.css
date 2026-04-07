@@ -40,7 +40,7 @@ html.lenis body {
     --secondary: #97cee0;
     --white: #ffffff;
     --secondary-blue: #556fba;
-    --tertiary-blue: #314589;
+    --tertiary-blue: #000000;
 }
 
 .header {
@@ -687,7 +687,7 @@ html.lenis body {
     gap: 12px;
     padding: 14px 28px;
     background: transparent;
-    border: 1px solid rgba(139,0,0,0.6);
+    border: 1px solid rgb(247, 113, 113);
     color: #ffb4a8;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.7rem;
@@ -705,14 +705,14 @@ html.lenis body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(139,0,0,0.3), transparent);
+    background: linear-gradient(135deg, rgb(255, 255, 255), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .b1-cta:hover {
     border-color: #a65959;
-    box-shadow: 0 0 30px rgba(139,0,0,0.25), inset 0 0 20px rgba(139,0,0,0.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.25), inset 0 0 20px rgba(139,0,0,0.1);
 }
 
 .b1-cta:hover::before {
@@ -783,7 +783,7 @@ html.lenis body {
 .b1-quote-mark {
     font-family: 'Panchang', sans-serif;
     font-size: 4rem;
-    color: rgba(139,0,0,0.4);
+    color: rgba(255, 255, 255, 0.4);
     line-height: 1;
     display: block;
     margin-bottom: -10px;
@@ -845,30 +845,272 @@ html.lenis body {
 }
 
 
-/* ── BOX 2: GOTHAM CITY (Blue #556fba) ── */
+/* ── BOX 2: JOKER (Cinematic Poster) ── */
 .stack-wrapper .box2 {
-    background: #0a0f1a;
+    background: #000;
+    isolation: isolate;
+    position: relative;
 }
 
-.box2-glow {
-    position: absolute; inset: 0;
-    background:
-        radial-gradient(ellipse at 50% 80%, rgba(85,111,186,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 20% 30%, rgba(180,197,255,0.04) 0%, transparent 40%);
-    z-index: 1; pointer-events: none;
+.b2-background {
+    position: absolute;
+    inset: 0;
+    background: url('https://i.pinimg.com/736x/39/a6/4d/39a64d52c214aa34a633fa6fb6350624.jpg') center/cover no-repeat;
+    background-position: 80% 10%;
+    z-index: 1;
 }
 
-/* ── BOX 3: WAYNE TECH (Gold #d4a843) ── */
+.b2-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #000000 0%, rgba(0,0,0,0.92) 28%, rgba(0,0,0,0.4) 50%, transparent 100%),
+                linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 20%);
+    z-index: 2;
+}
+
+.b2-content {
+    position: relative;
+    z-index: 5;
+    padding-left: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.b2-actors {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 5px;
+}
+
+.b2-director {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 20px;
+}
+
+.b2-title {
+    font-family: 'Panchang', sans-serif;
+    font-weight: 800;
+    font-size: clamp(5rem, 12vw, 11rem);
+    line-height: 0.85;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.b2-tagline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #000000;
+    margin-bottom: 8px;
+    margin-left: 5px;
+}
+
+.b2-date {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 5px;
+}
+
+.b2-date span {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.b2-trailers {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 5px;
+}
+
+.b2-t-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.b2-t-list {
+    display: flex;
+    gap: 20px;
+}
+
+.b2-thumb {
+    width: 140px;
+    height: 70px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.b2-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    transition: all 0.3s ease;
+}
+
+.b2-thumb:hover img, .b2-thumb.active img {
+    filter: brightness(1);
+}
+
+.b2-thumb:hover, .b2-thumb.active {
+    border-color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 900px) {
+    .b2-background {
+        background-position: 70% 30%;
+    }
+    
+    .b2-background::after {
+        background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.92) 50%, #000000 100%);
+    }
+
+    .b2-content {
+        padding-left: 5vw;
+        padding-right: 5vw;
+        padding-top: 25vh;
+        align-items: center;
+        text-align: center;
+    }
+
+    .b2-actors {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .b2-director {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .b2-tagline, .b2-date {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .b2-trailers {
+        align-items: center;
+        margin-left: 0;
+    }
+}
+
+/* ── BOX 3: THE VENGEANCE (White Theme) ── */
 .stack-wrapper .box3 {
-    background: #0a0a0a;
+    background: #030303;
 }
 
 .box3-glow {
     position: absolute; inset: 0;
     background:
-        radial-gradient(ellipse at 70% 40%, rgba(212,168,67,0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 20% 80%, rgba(242,195,91,0.03) 0%, transparent 40%);
+        radial-gradient(circle at 60% 50%, rgba(200, 200, 200, 0.15) 0%, rgba(50, 50, 50, 0.8) 60%, rgba(0,0,0,0.95) 100%),
+        radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 60%);
     z-index: 1; pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.b3-vertical-hero {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vh;
+    z-index: 2;
+    opacity: 0.85;
+}
+
+.b3-vertical-hero .vert-letter {
+    font-family: 'Panchang', sans-serif;
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 0.8;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.1em;}
+
+.b3-grunge {
+    position: absolute; inset: 0;
+    background: url('./image/981a7868ce6d64319d54b07c3a2c3b0b.jpg') center/cover;
+    background-position: right 30%;
+    opacity: 0.85; /* make it more visible */
+    z-index: 1; /* move it below the overlay gradient */
+    pointer-events: none;
+}
+
+.b3-content {
+    align-items: flex-end;
+    text-align: right;
+    padding-right: 8vw;
+    z-index: 5;
+    background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.75) 80%);
+}
+
+.b3-text-wrapper {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.tag-blood {
+    color: #e0e0e0;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+}
+
+.title-blood {
+    color: #ffffff;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    text-shadow: 0 0 20px rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+}
+
+.line-blood {
+    background: linear-gradient(270deg, #ffffff, rgba(200,200,200,0.2));
+    margin-bottom: 30px;
+    width: 150px;
+}
+
+.desc-blood {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+    margin-bottom: 30px;
+    font-family: 'Inter', sans-serif;
+}
+
+.tag-blood-fill {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
 /* ── BOX 4: THE DARK KNIGHT (Purple #9b4dca) ── */
@@ -915,6 +1157,12 @@ html.lenis body {
     line-height: 1;
     margin-bottom: 12px;
     text-transform: uppercase;
+    perspective: 1000px;
+}
+
+.b4-char {
+    display: inline-block;
+    transform-origin: center right;
 }
 
 .box-line {
@@ -923,7 +1171,7 @@ html.lenis body {
     background: linear-gradient(90deg, #a65959, #ffb3b1);
     margin-bottom: 28px;
 }
-.line-blue { background: linear-gradient(90deg, #556fba, #b4c5ff); }
+.line-blue { background: linear-gradient(90deg, #a65959, #ececec); }
 .line-gold { background: linear-gradient(90deg, #d4a843, #f2c35b); }
 
 .box-desc {
@@ -976,7 +1224,7 @@ html.lenis body {
 }
 
 .fill-blue {
-    background: linear-gradient(90deg, #556fba, #b4c5ff) !important;
+    background: linear-gradient(90deg, #ea8989, #f1f1f1) !important;
 }
 
 .bar-val {
@@ -1007,8 +1255,9 @@ html.lenis body {
 }
 
 .tag-blue {
-    color: rgba(85,111,186,0.9);
-    background: rgba(85,111,186,0.08);
+    color: #dff0ee;
+    background: rgba(89, 38, 38, 0.26);
+    border: 1px solid rgba(255, 104, 104, 0.6);
 }
 
 .tag-gold {
@@ -1034,95 +1283,13 @@ html.lenis body {
     bottom: 0; left: 0;
     width: 100%;
     height: 180px;
-    color: rgba(85,111,186,0.07);
+    color: rgba(225,225,225,0.12);
     z-index: 2;
     pointer-events: none;
 }
 
 /* ── TECH GRID (Box 3) ── */
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 750px;
-    margin-bottom: 40px;
-}
-
-.tech-card {
-    background: rgba(28,27,27,0.55);
-    padding: 28px 20px;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s ease;
-}
-
-.tech-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: linear-gradient(90deg, transparent, #d4a843, transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.tech-card:hover {
-    background: rgba(42,42,42,0.6);
-}
-
-.tech-card:hover::before {
-    opacity: 1;
-}
-
-.tech-ico {
-    width: 28px;
-    height: 28px;
-    color: #d4a843;
-    margin-bottom: 16px;
-}
-
-.tech-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #e5e2e1;
-    letter-spacing: 0.1em;
-    margin-bottom: 4px;
-}
-
-.tech-stat {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    color: #d4a843;
-    margin-bottom: 16px;
-    display: block;
-}
-
-.tech-bar {
-    width: 100%;
-    height: 2px;
-    background: rgba(255,255,255,0.06);
-}
-
-.tech-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #d4a843, #f2c35b);
-}
-
-/* ── CIRCUIT OVERLAY (Box 3) ── */
-.circuit-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(212,168,67,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212,168,67,0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-    z-index: 2;
-    pointer-events: none;
-}
+/* Tech Grid Removed */
 
 /* ── BOX 4 CENTER LAYOUT ── */
 .box4-center {
@@ -1139,11 +1306,29 @@ html.lenis body {
 .box4-hero {
     font-size: clamp(3.5rem, 11vw, 9rem);
     letter-spacing: 0.05em;
+    margin-bottom: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.b4-word {
+    display: flex;
+}
+
+.break-word {
+    flex-basis: 100%;
+    justify-content: center;
+}
+
+.b4-char {
+    display: inline-block;
+    transform-origin: center right;
     background: linear-gradient(180deg, #ffffff 0%, #d792ff 50%, #9b4dca 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 28px;
 }
 
 .box4-quote {
