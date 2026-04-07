@@ -17,8 +17,8 @@ const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".wrapper",
     start: "top top",
-    end: `+=${boxes.length * 200}%`, // 🔥 extra space
-    scrub: 1,
+    end: `+=${boxes.length *100}%`, // 🔥 extra space
+    scrub: 5,
     pin: true,
     anticipatePin: 1
   }
@@ -39,7 +39,7 @@ boxes.forEach((box, i) => {
       scale: 1,
       ease: "none"
     },
-    i * 1.5 // 🔥 spacing bada
+    i * 1 // 🔥 spacing bada
   );
 
   if (i > 0) {

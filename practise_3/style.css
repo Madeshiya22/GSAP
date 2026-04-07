@@ -13,24 +13,25 @@ body {
 }
 
 /* Lenis base styles */
-html.lenis, html.lenis body {
-  height: auto;
+html.lenis,
+html.lenis body {
+    height: auto;
 }
 
 .lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+    scroll-behavior: auto !important;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+    overscroll-behavior: contain;
 }
 
 .lenis.lenis-stopped {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .lenis.lenis-scrolling iframe {
-  pointer-events: none;
+    pointer-events: none;
 }
 
 
@@ -472,11 +473,12 @@ html.lenis, html.lenis body {
 
 .page_3_title {
     position: relative;
-    top:25%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
 }
+
 .page_3_title img {
     width: 30vw;
     position: absolute;
@@ -492,10 +494,10 @@ html.lenis, html.lenis body {
     position: absolute;
     font-size: clamp(5rem, 17vw, 6rem);
     font-family: 'Panchang', sans-serif;
-    color:transparent;
+    color: transparent;
     letter-spacing: 0.2em;
     -webkit-text-stroke: 1.5px #828282;
- 
+
 }
 
 .wrapper {
@@ -521,4 +523,661 @@ html.lenis, html.lenis body {
     white-space: nowrap;
     letter-spacing: 0.06em;
     flex-shrink: 0;
+}
+
+/* =========================
+   Fullscreen Box Stack
+   Stitch "Vigilante Noir" Design
+   ========================= */
+.stack-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: #000;
+}
+
+.stack-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+}
+
+.stack-box,
+.stack-wrapper .box {
+    width: 100vw;
+    height: 100vh;
+    will-change: transform;
+    position: relative;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+/* ── BOX 1: VIGILANTE PREMIERE — Stitch Cinematic Split ── */
+.stack-wrapper .box1 {
+    background: #0a0a0a;
+    display: grid;
+    grid-template-columns: 38% 32% 30%;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Atmospheric crimson glow behind character */
+.b1-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55vw;
+    height: 55vw;
+    max-width: 700px; max-height: 700px;
+    background: radial-gradient(circle, rgba(139,0,0,0.15) 0%, rgba(166,89,89,0.06) 35%, transparent 65%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Precision grid beams */
+.b1-beam {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+.b1-beam-v {
+    top: 0; bottom: 0;
+    left: 38%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent 10%, rgba(90,64,60,0.1) 50%, transparent 90%);
+}
+.b1-beam-h {
+    left: 0; right: 0;
+    top: 75%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 5%, rgba(90,64,60,0.08) 50%, transparent 95%);
+}
+
+/* Large faint "01" index */
+.b1-index {
+    position: absolute;
+    top: 6vh; right: 5vw;
+    font-family: 'Panchang', sans-serif;
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 700;
+    color: rgba(229,226,225,0.04);
+    z-index: 2;
+    pointer-events: none;
+    line-height: 1;
+}
+
+/* ── LEFT COLUMN ── */
+.b1-left {
+    position: relative;
+    z-index: 5;
+    padding: 0 0 0 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.b1-meta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: rgba(170,137,132,0.6);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+/* The massive stacked hero title */
+.b1-hero-title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    line-height: 0.88;
+}
+
+.b1-the {
+    font-family: 'Panchang', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 500;
+    color: rgba(229,226,225,0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.b1-dark,
+.b1-knight {
+    font-family: 'Panchang', sans-serif;
+    font-size: clamp(3.5rem, 7.5vw, 7.5rem);
+    font-weight: 700;
+    color: #e5e2e1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.b1-sub {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: rgba(229,226,225,0.3);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.b1-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(229,226,225,0.4);
+    max-width: 360px;
+    margin-bottom: 40px;
+}
+
+/* CTA Button — The "Trigger" */
+.b1-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: transparent;
+    border: 1px solid rgba(139,0,0,0.6);
+    color: #ffb4a8;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.b1-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(139,0,0,0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.b1-cta:hover {
+    border-color: #a65959;
+    box-shadow: 0 0 30px rgba(139,0,0,0.25), inset 0 0 20px rgba(139,0,0,0.1);
+}
+
+.b1-cta:hover::before {
+    opacity: 1;
+}
+
+.b1-cta svg {
+    transition: transform 0.3s ease;
+}
+
+.b1-cta:hover svg {
+    transform: translateX(4px);
+}
+
+/* ── CENTER COLUMN ── */
+.b1-center {
+    position: relative;
+    z-index: 4;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.b1-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(350px, 35vw, 520px);
+    height: clamp(350px, 35vw, 520px);
+    animation: b1-ring-spin 60s linear infinite;
+}
+
+@keyframes b1-ring-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.b1-batman {
+    position: relative;
+    z-index: 5;
+    width: auto;
+    height: 85vh;
+    max-height: 750px;
+    object-fit: contain;
+    filter: brightness(0.9) contrast(1.15);
+    /* Let the image bleed slightly over column bounds for drama */
+    margin-left: -5vw;
+    margin-right: -3vw;
+}
+
+/* ── RIGHT COLUMN ── */
+.b1-right {
+    position: relative;
+    z-index: 5;
+    padding: 0 5vw 0 2vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.b1-quote-wrap {
+    margin-bottom: auto;
+    margin-top: 30vh;
+}
+
+.b1-quote-mark {
+    font-family: 'Panchang', sans-serif;
+    font-size: 4rem;
+    color: rgba(139,0,0,0.4);
+    line-height: 1;
+    display: block;
+    margin-bottom: -10px;
+}
+
+.b1-quote-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(229,226,225,0.45);
+    max-width: 280px;
+}
+
+.b1-slide {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8vh;
+    color: rgba(229,226,225,0.35);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* ── BOX 1 RESPONSIVE ── */
+@media (max-width: 900px) {
+    .stack-wrapper .box1 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+    .b1-left { 
+        padding: 8vh 6vw 0; 
+        order: 1;
+    }
+    .b1-center { 
+        order: 2; 
+        height: 50vh;
+    }
+    .b1-right { 
+        order: 3; 
+        padding: 0 6vw 6vh;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .b1-batman {
+        height: 50vh;
+        margin: 0;
+    }
+    .b1-hero-title .b1-dark,
+    .b1-hero-title .b1-knight {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+    .b1-beam-v { display: none; }
+    .b1-quote-wrap { margin-top: 0; }
+    .b1-index { font-size: 3rem; }
+}
+
+
+/* ── BOX 2: GOTHAM CITY (Blue #556fba) ── */
+.stack-wrapper .box2 {
+    background: #0a0f1a;
+}
+
+.box2-glow {
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 80%, rgba(85,111,186,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 30%, rgba(180,197,255,0.04) 0%, transparent 40%);
+    z-index: 1; pointer-events: none;
+}
+
+/* ── BOX 3: WAYNE TECH (Gold #d4a843) ── */
+.stack-wrapper .box3 {
+    background: #0a0a0a;
+}
+
+.box3-glow {
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(ellipse at 70% 40%, rgba(212,168,67,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 80%, rgba(242,195,91,0.03) 0%, transparent 40%);
+    z-index: 1; pointer-events: none;
+}
+
+/* ── BOX 4: THE DARK KNIGHT (Purple #9b4dca) ── */
+.stack-wrapper .box4 {
+    background: #000000;
+}
+
+.box4-glow {
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 45%, rgba(155,77,202,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 55%, rgba(207,126,255,0.06) 0%, transparent 40%);
+    z-index: 1; pointer-events: none;
+}
+
+/* ── BOX INNER CONTENT ── */
+.box-inner {
+    position: relative;
+    z-index: 5;
+    padding: 80px 8vw;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 20px;
+}
+
+.box-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 7rem);
+    color: #e5e2e1;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.box-line {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #a65959, #ffb3b1);
+    margin-bottom: 28px;
+}
+.line-blue { background: linear-gradient(90deg, #556fba, #b4c5ff); }
+.line-gold { background: linear-gradient(90deg, #d4a843, #f2c35b); }
+
+.box-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(229,226,225,0.5);
+    max-width: 520px;
+    margin-bottom: 40px;
+}
+
+/* ── STAT BARS ── */
+.box-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 450px;
+    margin-bottom: 40px;
+}
+
+.bar-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.bar-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: rgba(229,226,225,0.55);
+    min-width: 95px;
+    text-transform: uppercase;
+}
+
+.bar-track {
+    flex: 1;
+    height: 3px;
+    background: rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #a65959, #ffb3b1);
+}
+
+.fill-blue {
+    background: linear-gradient(90deg, #556fba, #b4c5ff) !important;
+}
+
+.bar-val {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(229,226,225,0.75);
+    min-width: 34px;
+    text-align: right;
+}
+
+/* ── TAGS ── */
+.box-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(166,89,89,0.8);
+    padding: 7px 14px;
+    background: rgba(166,89,89,0.08);
+}
+
+.tag-blue {
+    color: rgba(85,111,186,0.9);
+    background: rgba(85,111,186,0.08);
+}
+
+.tag-gold {
+    color: rgba(212,168,67,0.9);
+    background: rgba(212,168,67,0.08);
+}
+
+/* ── BAT WATERMARK (Box 1) ── */
+.bat-watermark {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 30vw;
+    max-width: 420px;
+    color: rgba(166,89,89,0.04);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ── SKYLINE (Box 2) ── */
+.skyline-svg {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 180px;
+    color: rgba(85,111,186,0.07);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ── TECH GRID (Box 3) ── */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 750px;
+    margin-bottom: 40px;
+}
+
+.tech-card {
+    background: rgba(28,27,27,0.55);
+    padding: 28px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, #d4a843, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tech-card:hover {
+    background: rgba(42,42,42,0.6);
+}
+
+.tech-card:hover::before {
+    opacity: 1;
+}
+
+.tech-ico {
+    width: 28px;
+    height: 28px;
+    color: #d4a843;
+    margin-bottom: 16px;
+}
+
+.tech-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e5e2e1;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+.tech-stat {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #d4a843;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.tech-bar {
+    width: 100%;
+    height: 2px;
+    background: rgba(255,255,255,0.06);
+}
+
+.tech-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #d4a843, #f2c35b);
+}
+
+/* ── CIRCUIT OVERLAY (Box 3) ── */
+.circuit-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(212,168,67,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,168,67,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ── BOX 4 CENTER LAYOUT ── */
+.box4-center {
+    align-items: center;
+    text-align: center;
+}
+
+.bat-emblem {
+    width: clamp(100px, 18vw, 250px);
+    color: rgba(155,77,202,0.08);
+    margin-bottom: 20px;
+}
+
+.box4-hero {
+    font-size: clamp(3.5rem, 11vw, 9rem);
+    letter-spacing: 0.05em;
+    background: linear-gradient(180deg, #ffffff 0%, #d792ff 50%, #9b4dca 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 28px;
+}
+
+.box4-quote {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(0.85rem, 1.4vw, 1.15rem);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(171,171,171,0.65);
+    letter-spacing: 0.04em;
+    max-width: 460px;
+}
+
+.box4-beam {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(155,77,202,0.12) 20%,
+        rgba(207,126,255,0.06) 50%,
+        rgba(155,77,202,0.12) 80%,
+        transparent 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .box-inner { padding: 50px 6vw; }
+    .box-title { font-size: clamp(2rem, 10vw, 3.5rem); }
+    .tech-grid { grid-template-columns: 1fr; }
+    .box4-hero { font-size: clamp(2.5rem, 14vw, 5rem); }
+    .bar-name { min-width: 70px; font-size: 0.58rem; }
+    .bat-watermark { width: 50vw; }
 }
